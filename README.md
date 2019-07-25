@@ -50,7 +50,7 @@ create table profile(
 - getAllUsers: => /api/users
 - killUser: => /api/killUser
 - updateDistance: => /api/distance
-- deleteUser: => /api/terminate
+- deleteUser: => /api/obliterate
 
 ## ***CLIENT***
 
