@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Switch, NavLink} from 'react-router-dom';
+import Login from "./components/Home/Login";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div>
+          <NavLink exact to='/' activeClassName='active'>Home</NavLink>
+          <NavLink to='/profile' activeClassName='active'>Profile</NavLink>
+          <NavLink to='/kill_map' activeClassName='active'>Kill Map</NavLink>
+        </div>
       </header>
+      <Switch>
+        <Route exact path="/" component={Login}/>
+        <Route exact path="/profile" render={() =>{
+        return <div>this is the profile path</div>}}/>
+        <Route exact path="/kill_map" render={() =>{
+        return <div>this is the map path</div>}}/>
+        <Route exact path="*" render={() =>{
+        return <div>Y'ALL BEEN ZAPPED!</div>}}/>
+      </Switch>
+      
     </div>
   );
 }
